@@ -1,0 +1,15 @@
+{
+  "name": "viral-ad-remix",
+  "owner": { "name": "nathankim0" },
+  "metadata": {
+    "description": "Agent skill for remaking viral short-form app ads with AI video and real app screen recordings.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "viral-ad-remix",
+      "source": "./",
+      "description": "Remake viral app ads with AI video; real app screens composited onto every phone."
+    }
+  ]
+}

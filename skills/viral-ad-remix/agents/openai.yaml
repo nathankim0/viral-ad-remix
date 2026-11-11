@@ -1,0 +1,4 @@
+interface:
+  display_name: "Viral Ad Remix"
+  short_description: "Remake viral app ads with AI video and your real app screens"
+  default_prompt: "Use $viral-ad-remix to remake a viral app-install ad for this app and put the real app recording on every phone screen."
