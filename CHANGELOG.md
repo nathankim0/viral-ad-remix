@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.2.1 (2026-11-11)
+
+### Fixed
+
+- Lessons: silence padded under a result animation reads as an audio dropout.
+
 ## v0.2.0 (2026-11-11)
 
 ### Added

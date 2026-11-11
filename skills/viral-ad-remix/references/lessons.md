@@ -23,6 +23,7 @@ Each item cost at least one wasted render or a confused review. The workflow and
 - **"Too fast" usually means bad time allocation**, not speed: the result screen got 1.9 s while a silent walk got 1.6 s of nothing.
 - **Captions on top of app UI** hide what the ad is about. Keep the hook on the opening person shot only.
 - **ffmpeg gotchas:** builds without freetype have no `drawtext` (render text as PNG); time-varying `scale` expressions are unreliable (animate with PNG sequences); xfade needs identical timebases; looping an image inside a filter graph yields short clips (loop at the input); `$VAR[label]` in zsh is an array subscript, so write filter graphs from Python.
+- A 1.2 s silence inserted so a 3 s result animation could finish sounded like the audio dropping out mid-ad (viewers heard voice, nothing, voice). The animation peaked in 0.5 s. Cut the visual to the voice instead: keep pauses between lines under ~0.3 s and check the loudness profile of the final file for gaps.
 
 ## Screen replacement
 

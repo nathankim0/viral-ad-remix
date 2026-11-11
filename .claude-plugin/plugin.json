@@ -1,6 +1,6 @@
 {
   "name": "viral-ad-remix",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Remake a proven viral short-form ad for your app with an AI video model, then replace the AI's fake phone screens with your real app recording, keep lip-sync exact, and verify the result.",
   "author": { "name": "nathankim0" },
   "repository": "https://github.com/nathankim0/viral-ad-remix",
