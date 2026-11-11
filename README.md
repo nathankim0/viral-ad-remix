@@ -6,6 +6,17 @@
   <img src="assets/banner.png" alt="viral-ad-remix banner" width="100%">
 </p>
 
+
+<table>
+  <tr>
+    <th>60대 남성 농부</th>
+    <th>60대 여성 농부</th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/user-attachments/assets/31a81f0a-4fcf-48ff-977b-7245ce940352" width="400" alt="farmer_male_60s" /></td>
+    <td><img src="https://github.com/user-attachments/assets/c073b50d-4b08-4ff2-b2ad-11e7b7cd6545" width="400" alt="farmer_female_60s" /></td>
+  </tr>
+</table>
 <table>
   <tr>
     <th>Before</th>
