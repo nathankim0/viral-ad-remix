@@ -29,7 +29,10 @@ Each item cost at least one wasted render or a confused review. The workflow and
 - Per-frame detection of the bright screen jitters and misses frames (backlight, rotation). Detect once on a good frame, then **planar-track** (optical flow + RANSAC homography) both ways.
 - Bright-region detection can lock onto a wall, sky or paper. A real screen sits inside a darker bezel and has UI texture: score for both.
 - A screen's top often belongs to a darker status/header area and gets missed: snap each side to the longest **continuous** edge (bezel), not to the first dark row (text rows are dark too).
-- Track from the shot's first frame: phones often rotate into view, and the fake UI is visible during the turn.
+- Track from the shot's first frame: phones often rotate into view, and the fake UI is visible during the turn. Check every frame of the turn in the composite: when the phone is lifted from the waist and barely visible, tracking cannot follow it (see below).
+- The highlighted number was cropped from the clip's first frame while the app was still changing tabs, so it showed a stale value. Pass `pop_highlight.py --at` with a time where the screen has settled, and read the number in the output.
+- Tracking backward from the key frame through the moment a phone is raised left a screen floating beside the hand. Start the replaced clip once the screen faces the camera, and play the raise from the original (same source times for audio).
+- A dimmed AI phone screen was too dark for automatic detection. Read the corners off `preview` and pass `--key` and `--quad`.
 
 ## Review
 

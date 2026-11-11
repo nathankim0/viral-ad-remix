@@ -4,7 +4,8 @@
 usage: pop_highlight.py CLIP.mp4 X0,Y0,X1,Y1 OUT.mp4 [--to CX,CY] [--scale 2.0] [--duration 3.0] [--color 255,214,0] [--blank x0,y0,x1,y1]
 
 CLIP is an already laid-out vertical clip (e.g. 720x1280) of a mostly static result screen.
-The box X0,Y0,X1,Y1 (clip pixels) is cut from the first frame and animated as a frame-by-frame PNG overlay,
+The box X0,Y0,X1,Y1 (clip pixels) is cut from the frame at --at (default: first frame; screens that are still loading
+or switching tabs show a different number there, so check the frame first) and animated as a frame-by-frame PNG overlay,
 which works on any ffmpeg build (ffmpeg's time-varying scale expressions are not reliable across versions).
 Timeline: 0.15 s pop start, 0.45 s ease-out with overshoot, then a gentle pulse; background dims, glow fades in,
 sparkles blink from 0.5 s.
@@ -31,11 +32,12 @@ def main():
     ap.add_argument('--to'); ap.add_argument('--scale', type=float, default=2.0)
     ap.add_argument('--duration', type=float, default=3.0); ap.add_argument('--fps', type=int, default=30)
     ap.add_argument('--color', default='255,214,0')
+    ap.add_argument('--at', type=float, default=0.0, help='clip time (s) of the frame the number is cut from; pick a frame where the screen has settled')
     ap.add_argument('--blank', action='append', default=[], help='x0,y0,x1,y1 (clip px) painted white on every frame, e.g. an outdated banner')
     a = ap.parse_args()
     x0, y0, x1, y1 = map(int, a.box.split(',')); col = tuple(map(int, a.color.split(','))) + (255,)
     tmp = tempfile.mkdtemp()
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', a.clip, '-frames:v', '1', f'{tmp}/first.png'], check=True)
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-ss', str(a.at), '-i', a.clip, '-frames:v', '1', f'{tmp}/first.png'], check=True)
     first = Image.open(f'{tmp}/first.png').convert('RGBA'); W, H = first.size
     for b in a.blank:
         bx0, by0, bx1, by1 = map(int, b.split(',')); ImageDraw.Draw(first).rectangle([bx0, by0, bx1, by1], fill=(255, 255, 255, 255))

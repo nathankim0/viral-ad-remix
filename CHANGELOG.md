@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v0.1.1 (2026-11-11)
+
+### Fixed
+
+- `pop_highlight.py --at` picks the frame the number is cropped from, instead of the clip's first frame.
+- Lessons: stale first frame in highlights, raising-phone tracking, dimmed screens.
+
 ## v0.1.0 (2026-11-11)
 
 ### Added
