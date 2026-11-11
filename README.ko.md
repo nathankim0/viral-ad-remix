@@ -31,6 +31,7 @@ AI 영상 모델은 광고의 구성은 잘 따라 하지만 세부를 틀립니
 | 단계 | 스크립트 | 결과 |
 | --- | --- | --- |
 | 레퍼런스 찾기 | `find_reference_ads.py` | TikTok Creative Center 상위 광고를 국가·목적(앱 설치)·키워드·언어로 검색, 4~30초 영상 다운로드 |
+| 인물 만들기 | 이미지 모델(Codex CLI, Higgsfield 등) | 시청자 또래의 가상 인물 캐릭터 시트(세 각도, 자연스러운 손, 글자 없음). 영상 크레딧을 쓰기 전에 확인 |
 | AI 결과 파악 | `analyze_source.py` | 장면 전환과 안전한 자르기 범위, 단어 시간이 붙은 대사, 컨택트 시트, 정확한 오디오 컷용 50ms 음량 프로파일 |
 | 휴대폰 화면 교체 | `screen_replace.py auto` | 화면을 찾아 베젤에 맞추고, 휴대폰을 장면 끝까지 추적(돌아가는 중에도)해 실제 앱 녹화를 합성. 장면 전환에서 멈추고 검수 이미지를 만듦 |
 | 결과 강조 | `pop_highlight.py` | 실제 앱 화면의 핵심 숫자가 튀어나오며 빛나고 반짝임 |
@@ -69,6 +70,7 @@ person 5.2-8.8: frozen runs at none
 - `ffmpeg`가 있는 macOS 또는 Linux
 - `numpy`, `pillow`, `opencv-python-headless`가 설치된 Python 3
 - 대사 타이밍·검수용(선택): `mlx-whisper`(Apple Silicon) 또는 `openai-whisper`
+- 인물 캐릭터 시트용 이미지 모델(예: Codex CLI 이미지 생성, Higgsfield)
 - 레퍼런스 광고를 리크리에이트할 수 있는 AI 영상 도구(예: "ad recreate"나 video-to-video 모델). 에이전트를 통해 사용
 - 앱 화면 녹화([app-demo-recorder](https://github.com/nathankim0/app-demo-recorder) 스킬로 깔끔하게 찍을 수 있음)
 
@@ -92,7 +94,7 @@ pip3 install numpy pillow opencv-python-headless mlx-whisper
 
 ## 사용법
 
-에이전트에게 이렇게 요청하면 됩니다. "한국에서 터진 앱 설치 광고 중 우리 적립금 계산 기능에 맞는 걸 찾아서, 60대 여성이 나오게 우리 앱 광고로 다시 만들어줘." Codex에서는 `$viral-ad-remix`로 부를 수 있습니다. 에이전트는 `SKILL.md`의 순서대로 진행합니다. 레퍼런스 → 생성 지시서 → 장면 분석 → 화면 교체 → 조립 → 검수입니다.
+에이전트에게 이렇게 요청하면 됩니다. "한국에서 터진 앱 설치 광고 중 우리 적립금 계산 기능에 맞는 걸 찾아서, 60대 여성이 나오게 우리 앱 광고로 다시 만들어줘." Codex에서는 `$viral-ad-remix`로 부를 수 있습니다. 에이전트는 `SKILL.md`의 순서대로 진행합니다. 레퍼런스 → 캐릭터 시트 → 생성 지시서 → 장면 분석 → 화면 교체 → 조립 → 검수입니다.
 
 스크립트는 하나씩 따로 실행해도 됩니다. 옵션은 `--help`로 보고, 타임라인 형식은 `assemble.py --help`에 있습니다.
 

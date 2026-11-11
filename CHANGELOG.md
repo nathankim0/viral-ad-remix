@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.2.0 (2026-11-11)
+
+### Added
+
+- Workflow step 2, "Cast the person": generate and check a character sheet with Codex CLI image generation, Higgsfield, or another image model before spending video credits.
+
 ## v0.1.2 (2026-11-11)
 
 ### Fixed

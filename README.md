@@ -39,6 +39,7 @@ AI video models remake an ad's structure well and get the details wrong. In a re
 | Step | Script | What you get |
 | --- | --- | --- |
 | Find references | `find_reference_ads.py` | Top ads from TikTok Creative Center by country, objective (app install), keyword, language; download 4-30 s clips |
+| Cast the person | image model (Codex CLI, Higgsfield, or any) | A character sheet of a fictional peer of your viewer (three views, natural hands, no text), checked before video credits are spent |
 | Map the AI output | `analyze_source.py` | Shot cuts with safe trim ranges, spoken lines with word times, a contact sheet, a 50 ms loudness profile for exact audio cuts |
 | Fix phone screens | `screen_replace.py auto` | Finds the screen, snaps to the bezel, tracks the phone through the shot (even while it rotates), composites your app recording, stops at shot cuts, writes QA images |
 | Show the result | `pop_highlight.py` | The key number on your real app screen pops out, glows and sparkles |
@@ -77,6 +78,7 @@ person 5.2-8.8: frozen runs at none
 - macOS or Linux with `ffmpeg`
 - Python 3 with `numpy`, `pillow`, `opencv-python-headless`
 - Optional for speech timing and checks: `mlx-whisper` (Apple Silicon) or `openai-whisper`
+- An image model for the cast's character sheet (for example Codex CLI image generation, or Higgsfield)
 - An AI video tool that can recreate a reference ad (for example an "ad recreate" / video-to-video model), used through your agent
 - A screen recording of your app (the [app-demo-recorder](https://github.com/nathankim0/app-demo-recorder) skill makes clean ones)
 
@@ -100,7 +102,7 @@ pip3 install numpy pillow opencv-python-headless mlx-whisper
 
 ## Usage
 
-Ask the agent, for example: "Find a viral app-install ad in Korea that fits our savings calculator and remake it for our app with a woman in her sixties." In Codex you can call it with `$viral-ad-remix`. The agent follows `SKILL.md`: reference, generation brief, shot map, screen replacement, assembly, verification.
+Ask the agent, for example: "Find a viral app-install ad in Korea that fits our savings calculator and remake it for our app with a woman in her sixties." In Codex you can call it with `$viral-ad-remix`. The agent follows `SKILL.md`: reference, character sheet, generation brief, shot map, screen replacement, assembly, verification.
 
 Each script also runs on its own. Run it with `--help` for options. The timeline format is documented in `assemble.py --help`.
 
