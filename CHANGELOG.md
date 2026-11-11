@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.2.2 (2026-11-11)
+
+### Fixed
+
+- Lessons: never split audio inside a word; play back-to-back source ranges as one range.
+
 ## v0.2.1 (2026-11-11)
 
 ### Fixed

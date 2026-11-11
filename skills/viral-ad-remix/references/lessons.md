@@ -24,6 +24,7 @@ Each item cost at least one wasted render or a confused review. The workflow and
 - **Captions on top of app UI** hide what the ad is about. Keep the hook on the opening person shot only.
 - **ffmpeg gotchas:** builds without freetype have no `drawtext` (render text as PNG); time-varying `scale` expressions are unreliable (animate with PNG sequences); xfade needs identical timebases; looping an image inside a filter graph yields short clips (loop at the input); `$VAR[label]` in zsh is an array subscript, so write filter graphs from Python.
 - A 1.2 s silence inserted so a 3 s result animation could finish sounded like the audio dropping out mid-ad (viewers heard voice, nothing, voice). The animation peaked in 0.5 s. Cut the visual to the voice instead: keep pauses between lines under ~0.3 s and check the loudness profile of the final file for gaps.
+- That silence was also inserted at a source time inside a word ("…이래" split at 20.90 s), so the last syllable broke in two. Never split audio inside speech: put every split point in a pause found with `--rms`, and play back-to-back source ranges as one continuous range.
 
 ## Screen replacement
 
