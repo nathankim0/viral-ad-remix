@@ -1,7 +1,3 @@
-
-
-
-
 <p align="center">
   <img src="assets/banner.png" alt="viral-ad-remix banner" width="100%">
 </p>
@@ -24,7 +20,7 @@
   </tr>
   <tr>
     <td><video src="https://github.com/user-attachments/assets/ae1c8f94-831b-420a-b9f6-e39233fc9eaf" width="300" controls></video></td>
-    <td><video src="https://github.com/user-attachments/assets/59550720-3620-4bf6-b90e-d21c8ae5fe1d" width="300" controls></video></td>
+    <td><video src="https://github.com/user-attachments/assets/b4e59785-b7e6-4f06-9936-ba1b6ad0b374" width="300" controls></video></td>
   </tr>
 </table>
 
