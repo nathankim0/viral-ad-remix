@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## v0.1.0 (2026-11-11)
+
 ### Added
 
 - `viral-ad-remix` skill: workflow from reference discovery through AI generation brief, shot analysis, phone-screen replacement, sync-safe assembly, and verification, plus `references/lessons.md` with the failures it is built to avoid.
