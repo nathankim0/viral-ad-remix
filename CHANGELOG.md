@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v0.1.2 (2026-11-11)
+
+### Fixed
+
+- Captions: hook example and guidance no longer place the hook over the speaker's face.
+
 ## v0.1.1 (2026-11-11)
 
 ### Fixed

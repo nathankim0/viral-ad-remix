@@ -4,13 +4,13 @@
 usage: captions.py SPEC.json OUT_DIR [--size 720x1280] [--font PATH]
 
 SPEC.json is a list of items:
-  {"id": "hook", "lines": ["이번 달 포인트,", "얼마나 쌓였을까?"], "y": 195, "size": 62, "style": "hook"}
+  {"id": "hook", "lines": ["이번 달 포인트,", "얼마나 쌓였을까?"], "y": 800, "size": 54, "style": "hook"}
   {"id": "c1", "lines": ["이걸로 미리", "확인할 수 있다고?"], "y": 900, "size": 42, "align": "right"}
   {"id": "end", "style": "endcard", "icon": "icon.png", "title": "AppName", "bg": "245,247,242"}
 styles: "box" (default: white text on a dark rounded box), "hook" (white/yellow lines on a dark band), "endcard" (full frame).
 align: center (default), left, right.
 
-Keep captions out of the bottom ~20% and right edge where Reels/Shorts/Meta buttons sit, and never over the part of an
+Look at where the face is first: never cover it (a top-of-frame hook hides faces in close framings). Keep captions out of the bottom ~20% and right edge where Reels/Shorts/Meta buttons sit, and never over the part of an
 app screen the viewer must read. One sentence per caption, at most two lines. Fewer words beat more disclaimers stacked
 on screen; put required notices where they are legible but small.
 """

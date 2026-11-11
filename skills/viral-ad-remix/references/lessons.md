@@ -33,6 +33,7 @@ Each item cost at least one wasted render or a confused review. The workflow and
 - The highlighted number was cropped from the clip's first frame while the app was still changing tabs, so it showed a stale value. Pass `pop_highlight.py --at` with a time where the screen has settled, and read the number in the output.
 - Tracking backward from the key frame through the moment a phone is raised left a screen floating beside the hand. Start the replaced clip once the screen faces the camera, and play the raise from the original (same source times for audio).
 - A dimmed AI phone screen was too dark for automatic detection. Read the corners off `preview` and pass `--key` and `--quad`.
+- A hook caption placed at a fixed top position (y≈195 of 1280) covered the speaker's face in a close framing. Find the face in the contact sheet first and put the hook on the chest or below it, where the line captions go.
 
 ## Review
 
