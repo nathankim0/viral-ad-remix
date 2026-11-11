@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+work/
+screen_work/
+reference_ads/
+*.mp4
+!assets/*.mp4
+.omc/
